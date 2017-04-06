@@ -46,25 +46,23 @@ public class TheOneBlock extends CustomBlockContainer {
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         final ItemStack itemstack = player.getHeldItem(hand);
-        if (player.isSneaking()) {
-            if (mode.equalsIgnoreCase("replicator")) {
-                if (!itemstack.isEmpty()) {
-                    if (!replicate.equals(itemstack.getDisplayName())) {
-                        //final Block block = state.getBlock();
-                        final ITextComponent signText = new TextComponentString("Now replicating " + getReplicate(itemstack));
-                        player.sendStatusMessage(signText, true);
-                    }
-                }
-                if (itemstack.isEmpty()) {
-                    final ITextComponent signText = new TextComponentString("Now Replicating " + getReplicate(itemstack));
+        if (mode.equalsIgnoreCase("replicator")) {
+            if (!itemstack.isEmpty()) {
+                if (!replicate.equals(itemstack.getDisplayName())) {
+                    //final Block block = state.getBlock();
+                    final ITextComponent signText = new TextComponentString("Now replicating " + getReplicate(itemstack));
                     player.sendStatusMessage(signText, true);
                 }
             }
-            if (mode.equalsIgnoreCase("default")) {
-                if (!itemstack.isEmpty()) {
-                    final ITextComponent signText = new TextComponentString("Mode changed to " + getMode(itemstack));
-                    player.sendStatusMessage(signText, true);
-                }
+            if (itemstack.isEmpty()) {
+                final ITextComponent signText = new TextComponentString("Now Replicating " + getMode(itemstack));
+                player.sendStatusMessage(signText, true);
+            }
+        }
+        if (mode.equalsIgnoreCase("default")) {
+            if (!itemstack.isEmpty()) {
+                final ITextComponent signText = new TextComponentString("Mode changed to " + getMode(itemstack));
+                player.sendStatusMessage(signText, true);
             }
         }
         return true;
@@ -88,6 +86,6 @@ public class TheOneBlock extends CustomBlockContainer {
         if (itemStack.isEmpty()) {
             mode = "Default";
         }
-        return replicate;
+        return mode;
     }
 }
