@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tob",
+  "name": "The One Block",
+  "description": "Only adds one block with multiple functionality. 4 Different utilities".",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["KewaiiGamer"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
