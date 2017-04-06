@@ -55,7 +55,7 @@ public class TheOneBlock extends CustomBlockContainer {
                 }
             }
             if (itemstack.isEmpty()) {
-                final ITextComponent signText = new TextComponentString("Now Replicating " + getMode(itemstack));
+                final ITextComponent signText = new TextComponentString("Mode Changed " + getMode(itemstack));
                 player.sendStatusMessage(signText, true);
             }
         }
