@@ -7,7 +7,9 @@ import info.kewaiigamer.theoneblock.tileentity.TheOneBlockTE;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -24,6 +26,7 @@ public class TheOneBlock extends CustomBlockContainer {
 
     public static String mode = "Default";
     public static String replicate = "Nothing";
+    public static ItemStack replicateItemStack;
 
     public TheOneBlock(String name, Material material) {
         super(Ref.MODID, name, Main.tab, material);
@@ -48,19 +51,30 @@ public class TheOneBlock extends CustomBlockContainer {
         final ItemStack itemstack = player.getHeldItem(hand);
         if (mode.equalsIgnoreCase("replicator")) {
             if (!itemstack.isEmpty()) {
-                if (!replicate.equals(itemstack.getDisplayName())) {
-                    //final Block block = state.getBlock();
-                    final ITextComponent signText = new TextComponentString("Now replicating " + getReplicate(itemstack));
+                if (!itemstack.isItemEqual(new ItemStack(Item.getItemFromBlock(Blocks.COAL_BLOCK)))) {
+                    if (!replicate.equals(itemstack.getDisplayName())) {
+                        //final Block block = state.getBlock();
+                        final ITextComponent signText = new TextComponentString("Now replicating " + getReplicate(itemstack));
+                        player.sendStatusMessage(signText, true);
+                    }
+                }
+            }
+            if (itemstack.isItemEqual(new ItemStack(Item.getItemFromBlock(Blocks.COAL_BLOCK)))) {
+                if (!world.isRemote) {
+                    player.entityDropItem(replicateItemStack, 0);
+                }
+                itemstack.shrink(1);
+            }
+            if (player.isSneaking()) {
+                if (itemstack.isEmpty()) {
+                    final ITextComponent signText = new TextComponentString("Mode Changed " + getMode(itemstack));
                     player.sendStatusMessage(signText, true);
                 }
             }
-            if (itemstack.isEmpty()) {
-                final ITextComponent signText = new TextComponentString("Mode Changed " + getMode(itemstack));
-                player.sendStatusMessage(signText, true);
-            }
+
         }
         if (mode.equalsIgnoreCase("default")) {
-            if (!itemstack.isEmpty()) {
+            if (!itemstack.isEmpty() && itemstack.isItemEqual(new ItemStack(Items.DIAMOND))) {
                 final ITextComponent signText = new TextComponentString("Mode changed to " + getMode(itemstack));
                 player.sendStatusMessage(signText, true);
             }
@@ -68,10 +82,11 @@ public class TheOneBlock extends CustomBlockContainer {
         return true;
     }
 
-
     public String getReplicate(ItemStack itemStack) {
         if (!itemStack.isEmpty()) {
             replicate = itemStack.getDisplayName();
+            ItemStack one = new ItemStack(itemStack.getItem(), 1);
+            replicateItemStack = one;
         }
         if (itemStack.isEmpty()) {
             replicate = "Default";
