@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": { "model": "tob:theoneblock2_default" },
+    "replicator": { "model": "tob:replicator" }
+
+  }
+}

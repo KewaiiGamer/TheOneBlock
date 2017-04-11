@@ -1,6 +1,5 @@
 package info.kewaiigamer.theoneblock.registry;
 
-import info.kewaiigamer.theoneblock.block.Replicator;
 import info.kewaiigamer.theoneblock.block.TheOneBlock;
 import info.kewaiigamer.theoneblock.block.TheOneBlock2;
 import info.kewaiigamer.theoneblock.utils.Utils;
@@ -13,25 +12,20 @@ import net.minecraft.block.material.Material;
 public class ModBlocks {
 
     public static Block theoneblock;
-    public static TheOneBlock2 theoneblock2;
-    public static Replicator replicator;
-    public static String name = "theoneblock_default";
-    public static String name2 = "theoneblock2_default";
-    public static String name3 = "replicator_default";
+    public static Block theoneblock2;
+    public static Block replicator;
+    public static String tob_name = "theoneblock";
+    public static String tob2_name = "theoneblock2";
     public static Material material = Material.ROCK;
-    public static Material material2 = Material.GLASS;
 
     public static void registerModels() {
-        Utils.registerTOBRender(theoneblock, name);
-        Utils.registerTOBRender(theoneblock2, name2);
-        Utils.registerTOBRender(replicator, name3);
+        Utils.registerTOBRender(theoneblock, tob_name);
+        Utils.registerTOBRender(theoneblock2, tob2_name);
     }
 
-    public static void init()
-    {
-        theoneblock = new TheOneBlock(name, material);
-        theoneblock2 = new TheOneBlock2(name2, material2);
-        replicator = new Replicator(name3, material);
+    public static void init() {
+        theoneblock = new TheOneBlock(tob_name, material);
+        theoneblock2 = new TheOneBlock2(tob2_name, material);
     }
 
 
