@@ -2,4 +2,6 @@ item.GuideBook.name=The One Guide
 tile.tob:replicator.name=The One Replicator
 tile.tob:theoneblock2.name=The One Block 2
 tile.tob:theoneblock.name=The One Block
-
+guide.tob.entry.theoneblock.intro=Introduction
+guide.tob.entry.theoneblock.intro.info=The One Block is a block that can be transformed into other blocks. \nTo transform it the player must right click it with items in a specific order just how one would do as if they were using the crafting table.
+guide.tob.category.theoneblock=The One Block
