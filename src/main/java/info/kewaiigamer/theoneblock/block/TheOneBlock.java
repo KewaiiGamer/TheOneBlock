@@ -1,7 +1,6 @@
 package info.kewaiigamer.theoneblock.block;
 
 import info.kewaiigamer.kewaiilib.custom.CustomBlock;
-import info.kewaiigamer.kewaiilib.custom.CustomBlockContainer;
 import info.kewaiigamer.theoneblock.Main;
 import info.kewaiigamer.theoneblock.Ref;
 import info.kewaiigamer.theoneblock.tileentity.TheOneBlockTE;

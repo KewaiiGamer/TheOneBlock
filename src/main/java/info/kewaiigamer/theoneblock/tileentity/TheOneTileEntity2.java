@@ -8,7 +8,7 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class TheOneTileEntity2 extends TileEntity{
 
-    public static String id = "";
+    public String id = "";
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
