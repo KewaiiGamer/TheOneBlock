@@ -3,6 +3,7 @@ package info.kewaiigamer.theoneblock;
 import info.kewaiigamer.theoneblock.creativetab.TheOneTab;
 import info.kewaiigamer.theoneblock.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -17,8 +18,8 @@ import static info.kewaiigamer.theoneblock.Ref.*;
  */
 
 
-@net.minecraftforge.fml.common.Mod(modid=MODID, version= VERSION_MAJOR + VERSION_MINOR + VERSION_PATCH, name=MODNAME, acceptedMinecraftVersions=ACCEPTED_MC_VERSIONS,
-        dependencies = "required-after:" + KewaiiLib_MODID + ModVersion + KewaiiLib_VERSION_MAJOR + KewaiiLib_VERSION_MINOR + KewaiiLib_VERSION_PATCH + KewaiiLib_VERSION_BUILD + NewerVersions)
+@Mod(modid=MODID, version= VERSION_MAJOR + VERSION_MINOR + VERSION_PATCH, name=MODNAME, acceptedMinecraftVersions=ACCEPTED_MC_VERSIONS,
+        dependencies = "required-after:" + KewaiiLib_Dependency + ";after:guideapi;")
 
 public class Main {
 

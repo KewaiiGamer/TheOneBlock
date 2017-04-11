@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Created by ΑΛΕΧ on 8/4/2017.
@@ -41,6 +42,11 @@ public class TheOneBlock2 extends CustomBlock implements ITileEntityProvider {
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
         return new TheOneTileEntity2();
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+        tooltip.add("Created by Alex");
     }
 
     public TheOneTileEntity2 getTE(World world, BlockPos pos) {
@@ -88,7 +94,7 @@ public class TheOneBlock2 extends CustomBlock implements ITileEntityProvider {
     public void transform(String identity, World world, BlockPos pos) {
         if (identity.equals("3")) {
             world.setBlockState(pos, ModBlocks.replicator.getDefaultState(), 2);
-        }else if(identity.equals("421")){
+        }else if(identity.equals("421")) {
             world.setBlockState(pos, Blocks.END_PORTAL.getDefaultState(), 2);
         }
     }

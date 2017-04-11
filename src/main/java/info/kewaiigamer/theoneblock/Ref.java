@@ -21,7 +21,9 @@ public class Ref {
     public static final String KewaiiLib_VERSION_BUILD = ".0";
 
     public static final String NewerVersions = ",]";
-
     public static final String ModVersion = "@[";
+
+    public static final String KewaiiLib_Dependency = KewaiiLib_MODID + ModVersion + KewaiiLib_VERSION_MAJOR + KewaiiLib_VERSION_MINOR + KewaiiLib_VERSION_PATCH + KewaiiLib_VERSION_BUILD + NewerVersions;
+
 
 }
