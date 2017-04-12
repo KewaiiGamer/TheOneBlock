@@ -4,7 +4,7 @@ import info.kewaiigamer.kewaiilib.custom.CustomBlock;
 import info.kewaiigamer.theoneblock.Main;
 import info.kewaiigamer.theoneblock.Ref;
 import info.kewaiigamer.theoneblock.registry.ModBlocks;
-import info.kewaiigamer.theoneblock.tileentity.TheOneTileEntity2;
+import info.kewaiigamer.theoneblock.tileentity.TheOneBlockTE;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -35,13 +35,13 @@ public class TheOneBlock2 extends CustomBlock implements ITileEntityProvider {
 
     public TheOneBlock2(String name, Material material) {
         super(Ref.MODID, name, Main.tab, material);
-        GameRegistry.registerTileEntity(TheOneTileEntity2.class, Ref.MODID + ":tob_te");
+        GameRegistry.registerTileEntity(TheOneBlockTE.class, Ref.MODID + ":tob_te");
     }
 
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TheOneTileEntity2();
+        return new TheOneBlockTE();
     }
 
     @Override
@@ -49,10 +49,10 @@ public class TheOneBlock2 extends CustomBlock implements ITileEntityProvider {
         tooltip.add("Created by Alex");
     }
 
-    public TheOneTileEntity2 getTE(World world, BlockPos pos) {
+    public TheOneBlockTE getTE(World world, BlockPos pos) {
         TileEntity tile = world.getTileEntity(pos);
-        if (tile instanceof TheOneTileEntity2) {
-            return (TheOneTileEntity2) tile;
+        if (tile instanceof TheOneBlockTE) {
+            return (TheOneBlockTE) tile;
         }
         return null;
     }

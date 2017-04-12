@@ -1,10 +1,27 @@
 package info.kewaiigamer.theoneblock.tileentity;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- * Created by KewaiiGamer on 06/04/2017.
+ * Created by ΑΛΕΧ on 8/4/2017.
  */
-public class TheOneBlockTE extends TileEntity {
+public class TheOneBlockTE extends TileEntity{
+
+    public String id = "";
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setString("id", id);
+        return compound;
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        id = compound.getString("id");
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package info.kewaiigamer.theoneblock.proxy;
 
+import info.kewaiigamer.theoneblock.energy.theoneenergy.TheOneEnergyDataHandler;
 import info.kewaiigamer.theoneblock.registry.ModBlocks;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -15,7 +16,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
-
+        TheOneEnergyDataHandler.register();
     }
 
     public void postInit(FMLPostInitializationEvent e) {

@@ -78,7 +78,7 @@ public class TheOneBlock extends CustomBlock implements ITileEntityProvider {
                     player.entityDropItem(replicateItemStack, 0);
                 }
                 itemstack.shrink(1);
-                world.setBlockState(pos, this.blockState.getBaseState().withProperty(REPLICATOR, true), 2);
+                world.setBlockState(pos, state.withProperty(REPLICATOR, Boolean.FALSE), 2);
             }
             if (player.isSneaking()) {
                 if (itemstack.isEmpty()) {
@@ -111,7 +111,7 @@ public class TheOneBlock extends CustomBlock implements ITileEntityProvider {
 
     public String getMode(ItemStack itemStack) {
         if (itemStack.isItemEqual(new ItemStack(Items.DIAMOND))) {
-            mode = "Replicator";
+            mode = "TheOneReplicator";
         }
         if (itemStack.isEmpty()) {
             mode = "Default";

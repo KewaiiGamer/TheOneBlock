@@ -1,6 +1,6 @@
 package info.kewaiigamer.theoneblock.registry;
 
-import info.kewaiigamer.theoneblock.block.Replicator;
+import info.kewaiigamer.theoneblock.block.TheOneReplicator;
 import info.kewaiigamer.theoneblock.block.TheOneBlock;
 import info.kewaiigamer.theoneblock.block.TheOneBlock2;
 import info.kewaiigamer.theoneblock.utils.Utils;
@@ -29,7 +29,7 @@ public class ModBlocks {
     public static void init() {
         theoneblock = new TheOneBlock(tob_name, material);
         theoneblock2 = new TheOneBlock2(tob2_name, material);
-        replicator = new Replicator(rep_name, material);
+        replicator = new TheOneReplicator(rep_name, material);
     }
 
 
